@@ -7,21 +7,21 @@
 #define MAX_LINE_LEN 5000
 
 void inccounter(Patient *p, void *arg) {
-    /* DO NOT CHANGE THIS FUNCTION. */
+    
     int *ip = (int *)arg;
     (*ip)++;
 }
 
 
 void print_word(Patient *p, void *arg) {
-    /* DO NOT CHANGE THIS FUNCTION. */
+    
     char *fmt = (char *)arg;
     printf(fmt, p->name, p->birth_year, p->priority);
 }
 
 
 void dump(Patient *list) {
-    /* DO NOT CHANGE THIS FUNCTION. */
+    
     int len = 0;
 
     apply(list, inccounter, &len);    
@@ -31,11 +31,7 @@ void dump(Patient *list) {
 }
 
 Patient *tokenize_line(char *line) {
-    /* TODO: You have to implement this function to tokenize a line
-        and either:
-        1) return a valid Patient pointer if the line command is enqueue
-        2) return NULL if the line command is dequeue
-    */
+
     char* token = strtok(line, ",");
     char d[10] = "dequeue";
     if(strcmp(token, d)==0){
@@ -51,14 +47,7 @@ Patient *tokenize_line(char *line) {
 }
 
 Patient *read_lines(Patient *list) {
-    /* TODO: You have to implement this function to tokenize all lines
-        from the stdin. You HAVE TO use the tokenize_line function
-        as an auxiliary function to parse each line.
-        If tokenize_line returns a valid Patient pointer, add the
-        patient to the list with the correct priority.
-        Otherwise, dequeue the first patient from the list.
-        At the end of the function, return the list to the caller.       
-    */
+    
 	char* buffer[100];
 	while(fgets(buffer, sizeof(buffer), stdin)){
 		Patient* temp = tokenize_line(buffer);
@@ -68,9 +57,7 @@ Patient *read_lines(Patient *list) {
 }
 
 void deallocate_memory(Patient *list) {
-    /* TODO: You have to implement this function to deallocate (free) 
-        memory from the list before the program ends
-    */
+    
      Patient* temp;
      while(list!=NULL){
 	temp = list;
@@ -81,8 +68,7 @@ void deallocate_memory(Patient *list) {
 
 
 int main(int argc, char *argv[]) {
-    /* DO NOT CHANGE THE MAIN FUNCTION. YOU HAVE TO IMPLEMENT YOUR
-        CODE TO FOLLOW THE SEQUENCE OF INSTRUCTIONS BELOW. */
+    
     Patient *list = NULL;
 
     if (argc != 1) {
