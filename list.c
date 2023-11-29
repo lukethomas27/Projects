@@ -72,9 +72,6 @@ Patient *add_with_priority(Patient *list, Patient *new) {
 }
 		
 
-	
-
-
 Patient *peek_front(Patient *list) {
     return list;
 }
